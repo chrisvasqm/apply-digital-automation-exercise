@@ -11,8 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "13.14.1",
-    "dotenv": "16.4.5"
+    "cypress": "13.14.1"
   },
   "devDependencies": {
     "@faker-js/faker": "8.4.1"
