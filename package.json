@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cy": "cypress open --e2e --browser electron",
-    "cy:headless": "cypress run"
+    "open": "cypress open --e2e --browser electron",
+    "run": "cypress run"
   },
   "keywords": [],
   "author": "",
