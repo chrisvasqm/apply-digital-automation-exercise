@@ -2,6 +2,7 @@ import { faker } from '@faker-js/faker';
 import generateRandomNumber from '../../common/generate-random-number';
 import dayjs from 'dayjs';
 import Navbar from '../pom/Navbar';
+import PreRegisterForm from '../pom/PreRegisterForm';
 
 /**
  * Used some of the most common mobile and desktop viewports using
@@ -23,14 +24,14 @@ describe('Automation Exercise', () => {
 
   describe('Checkout', () => {
     const navbar = new Navbar();
+    const preRegisterForm = new PreRegisterForm();
 
     beforeEach(() => {
       cy.visit(Cypress.env('baseUrl'));
-      // Register a new Customer
+      // Start new Customer registration
       navbar.selectSignUpOrLogin();
-      cy.get('[data-qa="signup-name"]').type(faker.person.fullName());
-      cy.get('[data-qa="signup-email"]').type(faker.internet.email());
-      cy.get('[data-qa="signup-button"]').click();
+      preRegisterForm.fill(faker.person.fullName(), faker.internet.email());
+      preRegisterForm.submit();
 
       // Fill out the required fields
       cy.get('[data-qa="password"]').type(faker.internet.password());
