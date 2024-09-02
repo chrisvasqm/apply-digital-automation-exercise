@@ -26,7 +26,7 @@ describe('Automation Exercise', () => {
       cy.get('b').should('exist');
     });
 
-    it('shoudl be able to place an order as a new Customer', () => {
+    it('should be able to place an order as a new Customer', () => {
       cy.get('.nav > :nth-child(2) > a').click();
       cy.get(':nth-child(5) > .product-image-wrapper > .choose > .nav > li > a').click();
       cy.get('#quantity').clear().type(generateRandomNumber());
