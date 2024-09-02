@@ -11,6 +11,9 @@ importers:
       cypress:
         specifier: 13.14.1
         version: 13.14.1
+      dayjs:
+        specifier: 1.11.13
+        version: 1.11.13
     devDependencies:
       '@faker-js/faker':
         specifier: 8.4.1
