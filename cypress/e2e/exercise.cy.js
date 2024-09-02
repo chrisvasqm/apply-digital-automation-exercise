@@ -1,6 +1,7 @@
 import { faker } from '@faker-js/faker';
 import generateRandomNumber from '../../common/generate-random-number';
 import dayjs from 'dayjs';
+import Navbar from '../pom/Navbar';
 
 /**
  * Used some of the most common mobile and desktop viewports using
@@ -21,10 +22,12 @@ const setViewport = (viewport) => {
 describe('Automation Exercise', () => {
 
   describe('Checkout', () => {
+    const navbar = new Navbar();
+
     beforeEach(() => {
       cy.visit(Cypress.env('baseUrl'));
       // Register a new Customer
-      cy.get('.shop-menu > .nav > :nth-child(4) > a').click();
+      navbar.selectSignUpOrLogin();
       cy.get('[data-qa="signup-name"]').type(faker.person.fullName());
       cy.get('[data-qa="signup-email"]').type(faker.internet.email());
       cy.get('[data-qa="signup-button"]').click();
@@ -47,7 +50,7 @@ describe('Automation Exercise', () => {
       it(`should be able to place an order as a new Customer on ${viewport}`, () => {
         setViewport(viewport);
 
-        cy.get('.nav > :nth-child(2) > a').click();
+        navbar.selectProducts();
         cy.get(':nth-child(5) > .product-image-wrapper > .choose > .nav > li > a').click();
         cy.get('#quantity').clear().type(generateRandomNumber());
         cy.get(':nth-child(5) > .btn').click();
@@ -65,7 +68,7 @@ describe('Automation Exercise', () => {
     })
 
     afterEach(() => {
-      cy.get('.nav > :nth-child(4) > a').click();
+      navbar.selectLogout();
       cy.url().should('include', '/login');
     });
   });
