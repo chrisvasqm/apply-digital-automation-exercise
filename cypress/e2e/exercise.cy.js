@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import Navbar from '../pom/Navbar';
 import PreRegisterForm from '../pom/PreRegisterForm';
 import RegisterForm from '../pom/RegisterForm';
-import generateRandomNumber from '../../common/generate-random-number';
+import generateRandomNumber from '../common/generate-random-number';
 
 /**
  * Used some of the most common mobile and desktop viewports using
