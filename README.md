@@ -27,7 +27,7 @@ npm run open
 
 ### Mochawesome
 
-After running the `headless` command, you should have the `mochawesome` report generated locally on your machie inside the `/cypress/reports/html` directory.
+After running the `headless` command, you should have the `mochawesome` report generated locally on your machine inside the `/cypress/reports/html` directory.
 
 ### Lighthouse
 
