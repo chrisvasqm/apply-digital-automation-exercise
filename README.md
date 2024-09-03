@@ -65,3 +65,7 @@ I've decided to use Cypress because out of the two given options (Cypress and Pl
 ### Expected Result
 
 - Should redirect the user to the Order Successfully Created page.
+
+## Notes
+
+If we had access to the source code or to the Dev Team that worked on the automationexercise.com site used for this skill test, I would suggest to add more `id` or `data-qa` fields to help with the uniqueness of elements on the page to make the test less fragile.
