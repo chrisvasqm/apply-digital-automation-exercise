@@ -6,8 +6,7 @@ import RegisterForm from '../pom/RegisterForm';
 import generateRandomNumber from '../common/generate-random-number';
 
 /**
- * Used some of the most common mobile and desktop viewports using
- * a preset and a predefined resolution.
+ * Used some of the most common mobile and desktop viewports.
  * 
  * For more info, refer to https://docs.cypress.io/api/commands/viewport
  */
