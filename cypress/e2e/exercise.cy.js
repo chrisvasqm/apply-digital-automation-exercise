@@ -3,6 +3,7 @@ import generateRandomNumber from '../../common/generate-random-number';
 import dayjs from 'dayjs';
 import Navbar from '../pom/Navbar';
 import PreRegisterForm from '../pom/PreRegisterForm';
+import RegisterForm from '../pom/RegisterForm';
 
 /**
  * Used some of the most common mobile and desktop viewports using
@@ -34,17 +35,20 @@ describe('Automation Exercise', () => {
       preRegisterForm.submit();
 
       // Fill out the required fields
-      cy.get('[data-qa="password"]').type(faker.internet.password());
-      cy.get('[data-qa="first_name"]').type(faker.person.firstName());
-      cy.get('[data-qa="last_name"]').type(faker.person.lastName());
-      cy.get('[data-qa="address"]').type(faker.location.streetAddress());
-      cy.get('[data-qa="country"]').select('United States');
-      cy.get('[data-qa="state"]').type(faker.location.state());
-      cy.get('[data-qa="city"]').type(faker.location.city());
-      cy.get('[data-qa="zipcode"]').type(faker.location.zipCode());
-      cy.get('[data-qa="mobile_number"]').type(faker.phone.number());
-      cy.get('[data-qa="create-account"]').click();
-      cy.get('b').should('exist');
+      const registerForm = new RegisterForm();
+      registerForm.fill({
+        password: faker.internet.password(),
+        firstName: faker.person.firstName(),
+        lastName: faker.person.lastName(),
+        address: faker.location.streetAddress(),
+        country: 'United States',
+        state: faker.location.state(),
+        city: faker.location.city(),
+        zipcode: faker.location.zipCode(),
+        phone: faker.phone.number()
+      });
+      registerForm.submit();
+      registerForm.getAccountCreated().should('exist');
     });
 
     viewports.forEach(viewport => {
