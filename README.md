@@ -68,6 +68,5 @@ But I would say that Playwright offers a good set of features and similar develo
 
 - Should redirect the user to the Order Successfully Created page.
 
-## Notes
-
-If we had access to the source code or to the Dev Team that worked on the automationexercise.com site used for this skill test, I would suggest to add more `id` or `data-qa` fields to help with the uniqueness of elements on the page to make the test less fragile.
+> [!NOTE]
+> If we had access to the source code or to the Dev Team that worked on the automationexercise.com site used for this skill test, I would suggest to add more `id` or `data-qa` fields to help with the uniqueness of elements on the page to make the automated test execution less fragile.
