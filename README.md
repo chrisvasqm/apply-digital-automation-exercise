@@ -25,7 +25,17 @@ npm run open
 
 ## Reports
 
+### Mochawesome
+
 After running the `headless` command, you should have the `mochawesome` report generated locally on your machie inside the `/cypress/reports/html` directory.
+
+### Lighthouse
+
+Lighthouse tests showed a big difference in terms of Performance and some decent improvements that could be made to the Accessibility of the site.
+
+In terms of performance, the Desktop got 97 points while the mobile version got only 15 points.
+
+By following the list of suggestions in the document found in the `/lighthouse` directory, the Dev Team should be able to make big improvements over time for mobile users.
 
 ## Framework Selection
 
@@ -55,4 +65,3 @@ I've decided to use Cypress because out of the two given options (Cypress and Pl
 ### Expected Result
 
 - Should redirect the user to the Order Successfully Created page.
-
