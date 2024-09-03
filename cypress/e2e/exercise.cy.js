@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import Navbar from '../pom/Navbar';
 import PreRegisterForm from '../pom/PreRegisterForm';
 import RegisterForm from '../pom/RegisterForm';
+import generateRandomNumber from '../../common/generate-random-number';
 
 /**
  * Used some of the most common mobile and desktop viewports using
@@ -57,7 +58,7 @@ describe('Automation Exercise', () => {
         // Add product to Cart
         const productList = navbar.selectProducts();
         const productDetails = productList.viewProduct();
-        productDetails.setQuantity();
+        productDetails.setQuantity(generateRandomNumber());
         const modal = productDetails.addToCart();
 
         // Place order

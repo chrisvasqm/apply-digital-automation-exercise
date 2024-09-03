@@ -1,9 +1,8 @@
-import generateRandomNumber from '../../common/generate-random-number';
 import AddProductModal from './AddProductModal';
 
 class ProductDetails {
-  setQuantity() {
-    cy.get('#quantity').clear().type(generateRandomNumber());
+  setQuantity(amount) {
+    cy.get('#quantity').clear().type(amount);
   }
 
   addToCart() {
