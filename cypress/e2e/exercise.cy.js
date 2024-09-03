@@ -1,5 +1,4 @@
 import { faker } from '@faker-js/faker';
-import generateRandomNumber from '../../common/generate-random-number';
 import dayjs from 'dayjs';
 import Navbar from '../pom/Navbar';
 import PreRegisterForm from '../pom/PreRegisterForm';
@@ -55,20 +54,25 @@ describe('Automation Exercise', () => {
       it(`should be able to place an order as a new Customer on ${viewport}`, () => {
         setViewport(viewport);
 
-        navbar.selectProducts();
-        cy.get(':nth-child(5) > .product-image-wrapper > .choose > .nav > li > a').click();
-        cy.get('#quantity').clear().type(generateRandomNumber());
-        cy.get(':nth-child(5) > .btn').click();
-        cy.get('u').click();
-        cy.get('.col-sm-6 > .btn').click();
-        cy.get(':nth-child(7) > .btn').click();
-        cy.get('[data-qa="name-on-card"]').type(faker.person.fullName());
-        cy.get('[data-qa="card-number"]').type(faker.finance.creditCardNumber());
-        cy.get('[data-qa="cvc"]').type(faker.finance.creditCardCVV());
-        cy.get('[data-qa="expiry-month"]').type(dayjs().month());
-        cy.get('[data-qa="expiry-year"]').type(dayjs().year());
-        cy.get('[data-qa="pay-button"]').click();
-        cy.get('[data-qa="order-placed"] > b').should('exist');
+        // Add product to Cart
+        const productList = navbar.selectProducts();
+        const productDetails = productList.viewProduct();
+        productDetails.setQuantity();
+        const modal = productDetails.addToCart();
+
+        // Place order
+        const cart = modal.viewCart();
+        const checkout = cart.proceedToCheckout();
+        const paymentForm = checkout.placeOrder();
+        paymentForm.fill({
+          fullName: faker.person.fullName(),
+          creditCardNumber: faker.finance.creditCardNumber(),
+          creditCardCVV: faker.finance.creditCardCVV(),
+          month: dayjs().month(),
+          year: dayjs().year()
+        });
+        const paymentDone = paymentForm.submit();
+        paymentDone.getOrderCreated().should('exist');
       });
     })
 
