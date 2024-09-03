@@ -41,6 +41,8 @@ By following the list of suggestions in the document found in the `/lighthouse` 
 
 I've decided to use Cypress because out of the two given options (Cypress and Playwright) its the one I'm the most familiar with along with their helpful documentation and popularity according to the Google Trends [results](https://trends.google.com/trends/explore?q=Cypress,Playwright&hl=en).
 
+But I would say that Playwright offers a good set of features and similar development experience, so the decision of a team should take into consideration which one offers unique advantages or overall team familiarity to mitigate the learning curve, if needed.
+
 ## Test Case
 
 ### Preconditions
