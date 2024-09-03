@@ -24,12 +24,12 @@ describe('Automation Exercise', () => {
 
   describe('Checkout', () => {
     const navbar = new Navbar();
-    const preRegisterForm = new PreRegisterForm();
 
     beforeEach(() => {
       cy.visit(Cypress.env('baseUrl'));
       // Start new Customer registration
       navbar.selectSignUpOrLogin();
+      const preRegisterForm = new PreRegisterForm();
       preRegisterForm.fill(faker.person.fullName(), faker.internet.email());
       preRegisterForm.submit();
 
